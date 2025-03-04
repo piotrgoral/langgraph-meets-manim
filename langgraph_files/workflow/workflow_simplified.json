@@ -1,0 +1,48 @@
+{
+    "messages": [
+        {
+            "type": "human",
+            "content": ">> My number is between 1 and 25."
+        },
+        {
+            "type": "get_range",
+            "content": "{\"lower_bound\":1,\"upper_bound\":25}"
+        },
+        {
+            "type": "make_guess",
+            "content": "{\"guess\":13}"
+        },
+        {
+            "type": "get_feedback",
+            "content": "{\"state\": INTERRUPTED, \"message\": \"Is your number 13?\"}"
+        },
+        {
+            "type": "human",
+            "content": ">> No, it's too small."
+        },
+        {
+            "type": "get_feedback",
+            "content": "{\"state\": NONE, \"feedback\": FeedbackOptions.TOO_LOW}"
+        },
+        {
+            "type": "adjust_range",
+            "content": "{\"lower_bound\":14}"
+        },
+        {
+            "type": "make_guess",
+            "content": "{\"guess\":19}"
+        },
+        {
+            "type": "get_feedback",
+            "content": "{\"state\": INTERRUPTED, \"message\": \"Could it be 19?\"}"
+        },
+        {
+            "type": "human",
+            "content": ">> Yes, you guessed it!"
+        },
+        {
+            "type": "get_feedback",
+            "content": "{\"state\": NONE, \"feedback\": FeedbackOptions.CORRECT}"
+        }
+    ]
+}

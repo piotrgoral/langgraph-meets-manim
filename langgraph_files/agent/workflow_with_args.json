@@ -1,0 +1,135 @@
+{
+    "messages": [
+        {
+            "type": "human",
+            "content": ">> My number is between 1 and 25."
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "get_range_tool",
+                    "args": {
+                        "message_content": "My number is between 1 and 25."
+                    }
+                }
+            ],
+            "content": "{\"message_content\":\"My number is between 1 and 25.\"}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"lower_bound\":1,\"upper_bound\":25}",
+            "name": "get_range_tool"
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "make_guess_tool",
+                    "args": {
+                        "lower_bound": 1,
+                        "upper_bound": 25
+                    }
+                }
+            ],
+            "content": "{\"lower_bound\":1,\"upper_bound\":25}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"guess\":13}",
+            "name": "make_guess_tool"
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "get_feedback_tool",
+                    "args": {
+                        "guess": 13
+                    }
+                }
+            ],
+            "content": "{\"guess\":13}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"state\": INTERRUPTED, \"message\": \"Is your number 13?\"}",
+            "name": "get_feedback_tool"
+        },
+        {
+            "type": "human",
+            "content": ">> No, it is too small"
+        },
+        {
+            "type": "tool",
+            "content": "{\"state\": NONE, \"feedback\": FeedbackOptions.TOO_LOW}",
+            "name": "get_feedback_tool"
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "adjust_range_tool",
+                    "args": {
+                        "guess": 13,
+                        "feedback": "FeedbackOptions.TOO_LOW"
+                    }
+                }
+            ],
+            "content": "{\"guess\":13,\"feedback\":\"FeedbackOptions.TOO_LOW\"}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"lower_bound\":14}",
+            "name": "adjust_range_tool"
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "make_guess_tool",
+                    "args": {
+                        "lower_bound": 14,
+                        "upper_bound": 25
+                    }
+                }
+            ],
+            "content": "{\"lower_bound\":14,\"upper_bound\":25}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"guess\":19}",
+            "name": "make_guess_tool"
+        },
+        {
+            "type": "ai",
+            "tool_calls": [
+                {
+                    "name": "get_feedback_tool",
+                    "args": {
+                        "guess": 19
+                    }
+                }
+            ],
+            "content": "{\"guess\":19}"
+        },
+        {
+            "type": "tool",
+            "content": "{\"state\": INTERRUPTED, \"message\": \"Could it be 19?\"}",
+            "name": "get_feedback_tool"
+        },
+        {
+            "type": "human",
+            "content": ">> Yes, you guessed it!"
+        },
+        {
+            "type": "tool",
+            "content": "{\"state\": NONE, \"feedback\": FeedbackOptions.CORRECT}",
+            "name": "get_feedback_tool"
+        },
+        {
+            "type": "ai",
+            "content": "Great! I've guessed your number. If you want to play again, just let me know!"
+        }
+    ]
+}
